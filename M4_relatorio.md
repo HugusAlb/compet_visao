@@ -1,0 +1,7 @@
+# M4 — Relatório de Qualidade dos Dados
+
+**Taxa de detecção final:** 100% de mãos (364/364 quadros) e 100% de pose (364/364 quadros), sobre `keypoints.json` extraído de `video-inalacao2.mp4`. Nenhuma sequência sem detecção de mão (0 quadros), contra a maior sequência anterior de 53 quadros seguidos. Meta do projeto (≥ 90%) atingida com folga.
+
+**O que mudou após regravar:** o vídeo original (`video-inalacao.mp4`) tinha 71,5% de detecção de mãos (223/312 quadros), abaixo da meta de 90% definida no M2. Foi feita uma regravação (`video-inalacao2.mp4`) ajustando iluminação e enquadramento — mantendo as mãos completamente visíveis no quadro e evitando contraluz — conforme as causas prováveis levantadas na análise anterior (iluminação/oclusão/enquadramento). Após a regravação, a detecção de mãos subiu de 71,5% para 100%, e a maior falha sequencial caiu de 53 quadros para 0.
+
+**Observação sobre a qualidade dos keypoints:** além da taxa de detecção ter melhorado, a ausência de qualquer sequência de falha indica que o modelo (MediaPipe) manteve rastreamento contínuo das mãos ao longo de todo o vídeo, sem os "buracos" de dados que existiam na gravação anterior — o que é importante porque uma sequência longa sem detecção (como os 53 quadros do vídeo original) compromete a continuidade temporal necessária para analisar o movimento de inalação como uma série contínua, e não apenas quadros isolados.
